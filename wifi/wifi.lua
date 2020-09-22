@@ -5,7 +5,6 @@ function ssidChangedCallback()
     end
 end
 
-
 wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
 wifiWatcher:start()
 

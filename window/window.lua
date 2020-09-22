@@ -40,12 +40,9 @@ function winresize(how)
 end
 
 function winmovescreen(how)
-   local win = hs.window.focusedWindow()
-   if how == "left" then
-      win:moveOneScreenWest()
-   elseif how == "right" then
-      win:moveOneScreenEast()
-   end
+    hs.notify.show("Next Screen", "", "")
+    local win = hs.window.focusedWindow()
+    hs.grid.pushWindowNextScreen(win)
 end
 
 -- Toggle a window between its normal size, and being maximized
@@ -121,19 +118,27 @@ function down_third()
    end
 end
 
+function center()
+   local win = hs.window.focusedWindow()
+   win:centerOnScreen()
+end
+
 -------- Key bindings
 
 -- Halves of the screen
-hs.hotkey.bind({"ctrl",        "cmd"}, "Left",  hs.fnutils.partial(winresize, "left"))
-hs.hotkey.bind({"ctrl",        "cmd"}, "Right", hs.fnutils.partial(winresize, "right"))
-hs.hotkey.bind({"ctrl",        "cmd"}, "Up",    hs.fnutils.partial(winresize, "up"))
-hs.hotkey.bind({"ctrl",        "cmd"}, "Down",  hs.fnutils.partial(winresize, "down"))
+hs.hotkey.bind({"ctrl","cmd"}, "Left",  hs.fnutils.partial(winresize, "left"))
+hs.hotkey.bind({"ctrl","cmd"}, "Right", hs.fnutils.partial(winresize, "right"))
+hs.hotkey.bind({"ctrl","cmd"}, "Up",    hs.fnutils.partial(winresize, "up"))
+hs.hotkey.bind({"ctrl","cmd"}, "Down",  hs.fnutils.partial(winresize, "down"))
+
+-- Center of the screen
+hs.hotkey.bind({"ctrl", "cmd"}, "C", center)
 
 -- Thirds of the screen
-hs.hotkey.bind({"ctrl", "alt"       }, "Left",  left_third)
-hs.hotkey.bind({"ctrl", "alt"       }, "Right", right_third)
-hs.hotkey.bind({"ctrl", "alt"       }, "Up",    up_third)
-hs.hotkey.bind({"ctrl", "alt"       }, "Down",  down_third)
+hs.hotkey.bind({"ctrl", "alt"}, "Left",  left_third)
+hs.hotkey.bind({"ctrl", "alt"}, "Right", right_third)
+hs.hotkey.bind({"ctrl", "alt"}, "Up",    up_third)
+hs.hotkey.bind({"ctrl", "alt"}, "Down",  down_third)
 
 -- Maximized
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "F",     hs.fnutils.partial(winresize, "max"))
