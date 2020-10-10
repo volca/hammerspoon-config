@@ -40,9 +40,12 @@ function winresize(how)
 end
 
 function winmovescreen(how)
-    hs.notify.show("Next Screen", "", "")
     local win = hs.window.focusedWindow()
-    hs.grid.pushWindowNextScreen(win)
+    if how == "left" then
+      win:moveOneScreenWest()
+    elseif how == "right" then
+      win:moveOneScreenEast()
+    end
 end
 
 -- Toggle a window between its normal size, and being maximized
