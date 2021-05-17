@@ -47,6 +47,7 @@
 - [wifi](./wifi/wifi.lua) : Callbacks when Wi-Fi state change.
 - [window](./window/window.lua) : Hotkeys for window management.
 - [weather](./weather/weather.lua) : Local weather state in mac menubar.
+- [mouse](./mouse/mouse.lua) : move cursor between screens
 
 ## Install
 
