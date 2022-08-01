@@ -5,7 +5,6 @@
 
 # Screenshots
 
-
 <details>
 <summary>Weather menuBar</summary>
 
@@ -36,6 +35,7 @@
 
 ## Modules
 
+- [config](./config.lua) : Private config file. Don't add the file to git
 - [clipboard](./clipboard/clipboard.lua) : Clipboard history.
 - [headphone](./headphone/headphone.lua) : Bluetooth headphone auto toggle.
 - [hotkey](./hotkey/hotkey.lua) : Custom hotkey.
