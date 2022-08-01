@@ -23,6 +23,7 @@ function ssidChangedCallback()
         print("ssid = "..(ssid))
     end
 
+    -- See config.lua for CONFIG_WIFI_SSID
     if (ssid ~= CONFIG_WIFI_SSID) then
         hs.execute("networksetup -setsocksfirewallproxystate 'Wi-fi' off")
     else
